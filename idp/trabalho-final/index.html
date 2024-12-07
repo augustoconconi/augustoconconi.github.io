@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reportagem Interativa</title>
+    <style>
+        * {
+            margin: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 630px;
+            margin: 40px 20px;
+        }
+
+        .header {
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 10px;
+            margin-bottom: 1em;
+        }
+
+        .kicker {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 12px;
+            padding-bottom: 5px;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 32px;
+            text-wrap: balance;
+            line-height: 38px;
+            margin: 0;
+            margin-bottom: 0.333em;
+        }
+
+        h2 {
+            font-size: 1.125rem;
+            line-height: 1.25rem;
+            text-transform: uppercase;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+
+        .subhead {
+            color: #757575;
+            font-size: 1em;
+            font-weight: 400;
+            line-height: 1.25;
+            margin: 0;
+            text-wrap: balance;
+        }
+
+        .byline {
+            color: #333;
+            margin-top: 0.5em;
+            margin-bottom: 0.5em;
+            font-size: 1em;
+            line-height: 1.56;
+            font-weight: 700;
+        }
+
+        .dateline {
+            font-size: 0.7em;
+            color: #333;
+            margin-bottom: 0;
+        }
+
+        section [data-type="location"] {
+            display: block;
+            font-size: 1rem;
+            float: left;
+            margin-right: 0.555em;
+            margin-top: 0.277em;
+            font-size: 0.777em;
+            font-weight: 700;
+            line-height: 1.43;
+            text-transform: uppercase;
+        }
+
+        .img-wrapper {
+            max-width: 100%;
+            margin: 40px 0;
+        }
+
+        .img-wrapper img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .img-wrapper .caption {
+            border-bottom: solid 1px #e0e0e0;
+            font-size: 0.888em;
+            margin-top: 0.444rem;
+            padding-bottom: 0.555em;
+            text-align: left;
+        }
+
+        .img-wrapper .credits {
+            color: #757575;
+        }
+
+        article {
+            padding-top: 0.277em;
+        }
+
+        section p {
+            color: #333;
+            font-size: 1em;
+            line-height: 1.5;
+            margin-bottom: 1em;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .button-container button {
+            background-color: #0073e6;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .button-container button:hover {
+            background-color: #005bb5;
+        }
+
+        .button-container button.active {
+            background-color: #005bb5;
+        }
+
+        .chart-container iframe {
+            width: 100%;
+            border: none;
+            display: none;
+        }
+
+        .chart-container iframe.active {
+            display: block;
+        }
+    </style>
+
+<body>
+    <section class="container">
+        <div class="header">
+            <div class="kicker">Educação Básica</div>
+            <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat itaque deserunt</h1>
+            <div class="subhead">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat itaque deserunt
+            </div>
+        </div>
+        <div class="dateline">7.dez.2024</div>
+        <div class="byline">Augusto Conconi</div>
+        <article>
+            <div data-type="location">São Paulo</div>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores odit
+                aspernatur debitis consequuntur repudiandae voluptatibus ipsam qui
+                maiores fugit laborum? Nihil sunt odit itaque repellendus doloribus
+                dolorem ut at placeat.
+            </p>
+
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores odit
+                aspernatur debitis consequuntur repudiandae voluptatibus ipsam qui
+                maiores fugit laborum? Nihil sunt odit itaque repellendus doloribus
+                dolorem ut at placeat.
+            </p>
+            <div class="img-wrapper">
+                <img src="https://picsum.photos/id/40/777/518" />
+                <div class="caption">
+                    Lorem ipsum dolor sit amet consectetur
+                    <span class="credits">Nome Sobrenome/Fonte</span>
+                </div>
+            </div>
+            <div class="interactive">
+                <div class="button-container">
+                    <button id="btn-ano">Ano</button>
+                    <button id="btn-estado">Estado</button>
+                    <button id="btn-rede">Pública x Privada</button>
+                </div>
+                <div class="chart-container">
+                    <iframe title="Índice melhora, mas Brasil ainda tem 7% de analfabetos" aria-label="Stacked Bars"
+                        id="datawrapper-chart-3FJat" src="https://datawrapper.dwcdn.net/3FJat/3/" class="active"
+                        scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none"
+                        height="458" data-external="1"></iframe>
+                    <script type="text/javascript">
+                        !(function () {
+                            "use strict";
+                            window.addEventListener("message", function (a) {
+                                if (void 0 !== a.data["datawrapper-height"]) {
+                                    var e = document.querySelectorAll("iframe");
+                                    for (var t in a.data["datawrapper-height"])
+                                        for (var r = 0; r < e.length; r++)
+                                            if (e[r].contentWindow === a.source) {
+                                                var i = a.data["datawrapper-height"][t] + "px";
+                                                e[r].style.height = i;
+                                            }
+                                }
+                            });
+                        })();
+                    </script>
+                    <iframe title="Índice de alfabetização melhora em todos os Estados" aria-label="Split Bars"
+                        id="datawrapper-chart-knlJM" src="https://datawrapper.dwcdn.net/knlJM/3/" scrolling="no"
+                        frameborder="0" style="width: 0; min-width: 100% !important; border: none" height="1180"
+                        data-external="1"></iframe>
+                    <script type="text/javascript">
+                        !(function () {
+                            "use strict";
+                            window.addEventListener("message", function (a) {
+                                if (void 0 !== a.data["datawrapper-height"]) {
+                                    var e = document.querySelectorAll("iframe");
+                                    for (var t in a.data["datawrapper-height"])
+                                        for (var r = 0; r < e.length; r++)
+                                            if (e[r].contentWindow === a.source) {
+                                                var i = a.data["datawrapper-height"][t] + "px";
+                                                e[r].style.height = i;
+                                            }
+                                }
+                            });
+                        })();
+                    </script>
+                    <iframe title="Ideb - Ensino médio" aria-label="Interactive line chart" id="datawrapper-chart-CBDPk"
+                        src="https://datawrapper.dwcdn.net/CBDPk/1/" scrolling="no" frameborder="0"
+                        style="width: 0; min-width: 100% !important; border: none" height="424"
+                        data-external="1"></iframe>
+                    <script type="text/javascript">
+                        !(function () {
+                            "use strict";
+                            window.addEventListener("message", function (a) {
+                                if (void 0 !== a.data["datawrapper-height"]) {
+                                    var e = document.querySelectorAll("iframe");
+                                    for (var t in a.data["datawrapper-height"])
+                                        for (var r = 0; r < e.length; r++)
+                                            if (e[r].contentWindow === a.source) {
+                                                var i = a.data["datawrapper-height"][t] + "px";
+                                                e[r].style.height = i;
+                                            }
+                                }
+                            });
+                        })();
+                    </script>
+                </div>
+            </div>
+        </article>
+    </section>
+
+    <script>
+        const buttons = document.querySelectorAll(".button-container button")
+        const charts = document.querySelectorAll(".chart-container iframe")
+
+        buttons.forEach((button, index) => {
+            button.addEventListener("click", () => {
+                buttons.forEach((btn) => btn.classList.remove("active"));
+                charts.forEach((chart) => chart.classList.remove("active"));
+
+                button.classList.add("active");
+                charts[index].classList.add("active")
+            })
+        })
+
+        buttons[0].classList.add("active")
+    </script>
+</body>
+
+</html>
